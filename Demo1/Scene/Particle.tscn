@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://8x726yayp23f"]
+
+[ext_resource type="Texture2D" uid="uid://d0dhxpjv7eb0m" path="res://icon.svg" id="1_j4fdb"]
+[ext_resource type="Script" path="res://Scripts/Particle.cs" id="2_8nlrk"]
+
+[sub_resource type="Curve" id="Curve_tag64"]
+_data = [Vector2(0, 0.989474), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Particle" type="CPUParticles2D"]
+emitting = false
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("1_j4fdb")
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 150.0
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_tag64")
+script = ExtResource("2_8nlrk")

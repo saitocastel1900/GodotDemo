@@ -1,9 +1,13 @@
 using Godot;
-using System;
 
-public partial class Move : Node
+public partial class Particle : CpuParticles2D
 {
-	// Called when the node enters the scene tree for the first time.
+	public void Start(Vector2 pos)
+	{
+		Emitting = true;
+		Position = pos;
+	}
+
 	public override void _Ready()
 	{
 	}
@@ -11,5 +15,9 @@ public partial class Move : Node
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		if (Emitting == false)
+		{
+			QueueFree();
+		}
 	}
 }
